@@ -1,0 +1,349 @@
+.input {
+  border: 0;
+  width: 100%;
+  background-color: #383D40;
+  font-size: 12px;
+  padding: 10px;
+  color: #FFF;
+  outline-color: transparent;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: .3s;
+}
+.input:focus {
+  box-shadow: 0 0 2px 1px coral;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb {
+  background: coral;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+*::-webkit-scrollbar-track {
+  background-color: darkgray;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+html {
+  cursor: default;
+  background-color: #2c3134;
+}
+body {
+  font-family: 'Roboto', cursive;
+  font-size: 16px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.selected {
+  box-shadow: inset 0 0 5px 2px #f12323;
+  background-color: rgba(50, 50, 50, 0.5);
+  border-radius: 5px;
+}
+.menu {
+  height: 50px;
+  background-color: #3d474c;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.menu .button {
+  border-radius: 2px;
+  margin: 5px;
+  padding: 5px;
+  transition: 0.3s;
+  text-transform: capitalize;
+  background: linear-gradient(#5D676D, #3A4046);
+}
+.menu .button .wrapper {
+  padding: 5px 15px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.menu .button .wrapper i {
+  padding-right: 5px;
+}
+.main {
+  display: flex;
+  height: 100%;
+}
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.panel .style-ref {
+  color: #d0d0d0;
+  font-size: 12px;
+  display: block;
+  text-align: right;
+  padding: 0 10px 10px 0;
+}
+.panel > h2 {
+  background-color: coral;
+  color: white;
+  padding: 10px 12px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.panel .tabs {
+  border-bottom: 1px solid #434D52;
+  margin: 10px;
+  height: 30px;
+}
+.panel .tabs .tab {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  float: left;
+  position: relative;
+}
+.panel .tabs .tab.active {
+  background: linear-gradient(#5D676D, #3A4046);
+  border-radius: 2px 2px 0 0;
+}
+.panel #content {
+  flex-grow: 0;
+  overflow: hidden;
+}
+.panel #structure {
+  flex-grow: 1;
+  position: relative;
+}
+.panel.main-right,
+.panel.main-left {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 200px;
+}
+.panel.main-middle {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  min-width: 500px;
+  overflow: hidden;
+  border: 10px double #6d6d6d;
+}
+.panel * {
+  transition: .3s;
+}
+.resize.horizontal {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  left: 0;
+  cursor: row-resize;
+  height: 10px;
+  z-index: 1;
+  background-color: cornflowerblue;
+}
+.resize.horizontal::before {
+  content: '';
+  width: 25px;
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  margin-left: -12px;
+  height: 1px;
+  border: 1px solid #6A7277;
+  border-left: none;
+  border-right: none;
+}
+.resize.vertical {
+  position: absolute;
+  width: 5px;
+  right: 0;
+  cursor: col-resize;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: cornflowerblue;
+}
+.sizer {
+  position: relative;
+  margin: 50px;
+  height: 100%;
+  background-color: #7b7a7a;
+}
+iframe {
+  pointer-events: all;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+}
+.search {
+  position: relative;
+  height: 35px;
+  flex-shrink: 0;
+  margin: 10px;
+}
+.search input {
+  border: 0;
+  width: 100%;
+  background-color: #383D40;
+  font-size: 12px;
+  padding: 10px;
+  color: #FFF;
+  outline-color: transparent;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: .3s;
+}
+.search input:focus {
+  box-shadow: 0 0 2px 1px coral;
+}
+.search i {
+  position: absolute;
+  top: 8px;
+  color: #CCC;
+  right: 15px;
+}
+.list {
+  padding-right: 10px;
+  margin: 10px;
+  overflow-y: scroll;
+}
+.list .folder {
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(#5D676D, #3A4046);
+  text-transform: capitalize;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.list .subfolder > .folder::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  transform: translate(-50%, 50%);
+  height: 2px;
+  width: 20px;
+  background-color: white;
+}
+.list .subfolder > .folder::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  transform: rotate(90deg) translate(-25px, 29px);
+  height: 2px;
+  width: 40px;
+  background-color: white;
+}
+.list .subfolder {
+  padding: 5px 0;
+  background-color: #3d4956;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  border-radius: 5px;
+  max-height: 150px;
+}
+.list .subfolder.toogle {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.list .item {
+  padding: 5px;
+  margin: 5px 0;
+  position: relative;
+}
+.list .item i {
+  margin-left: 10px;
+}
+.list .item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, 50%);
+  height: 2px;
+  width: 20px;
+  background-color: white;
+}
+.list .item::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  transform: rotate(90deg) translate(-25px, 29px);
+  height: 2px;
+  width: 40px;
+  background-color: white;
+}
+.list #css {
+  width: 100%;
+  height: 50px;
+}
+.css-block {
+  background-color: #383c3e;
+  margin-bottom: 10px;
+  padding: 10px;
+  line-height: 1.4;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid coral;
+}
+.css-block .rules {
+  padding-left: 20px;
+}
+.css-block .property {
+  color: #269226;
+}
+.css-block .spacer {
+  color: white;
+  margin-left: 5px;
+}
+.css-block .value {
+  color: #c13c3c;
+  background: none;
+  border: none;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+.css-block .opening-brace,
+.css-block .closing-brace {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  color: white;
+}
+.css-block .opening-brace .selector,
+.css-block .closing-brace .selector {
+  color: #00AEEF;
+  word-wrap: break-word;
+}
+.css-block .addProp {
+  position: absolute;
+  background: linear-gradient(#5D676D, #3A4046);
+  right: 10px;
+  bottom: 10px;
+  padding: 2px;
+  font-size: 10px;
+  border: none;
+  color: white;
+  box-shadow: 0 0 10px black;
+  border: 5px;
+}

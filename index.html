@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web (-_-) Constructor </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/constructor.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="menu">
+        <div class="button">
+            <div class="wrapper">
+                <i class="fa fa-folder-open-o" aria-hidden="true"></i> open
+            </div>
+        </div>
+        <div class="button">
+            <div class="wrapper" id="new">
+                <i class="fa fa-file-o" aria-hidden="true"></i> new
+            </div>
+        </div>
+        <div class="button">
+            <div class="wrapper">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> save
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="panel main-left">
+            <div id="content" class="panel">
+                <h2>content</h2>
+                <div class="padding">
+                    <div class="tabs">
+                        <div class="tab active" data-hover='true'>Presets</div>
+                    </div>
+                    <!--<div class="search">-->
+                        <!--<input type="search">-->
+                        <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                    <!--</div>-->
+                    <div class="list" id="templateSetup">
+                        <div class="template" v-for="template in templates">
+                            <div class="folder">
+                                <i class="fa fa-folder" aria-hidden="true"></i>
+                                <b>{{template.name}}</b>
+                            </div>
+                            <div class="subfolder">
+                                <span class="item" id={{template.name}} v-for="item in template.templates" @click="loadTemplate(item.html, item.css, item.name)">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                <b>{{item.name}}</b>
+                           </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel main-middle">
+            <div class="sizer">
+                <iframe id="active"></iframe>
+            </div>
+        </div>
+        <div class="panel main-right">
+            <div class="panel" id="styleSetup">
+                <h2>properties</h2>
+                <div class="tabs">
+                    <div class="tab active">style</div>
+                    <div class="tab">attribute</div>
+                </div>
+
+                <div class="list">
+                    <div v-for="(stylesArr, stylesheet) in cssObj">
+                        <span class="style-ref" v-if="filterSelector(stylesArr).length>0">{{activeStylesheet}}</span>
+                        <div v-for="rule in filterSelector(stylesArr)" class='css-block'>
+                            <div v-for="(properties, selector, index) in rule">
+
+                                    <p class='opening-brace'><span class='selector'>{{selector}}</span> {</p>
+                                    <ul class='rules'>
+                                        <li v-for="(val, prop) in properties">
+                                            <span class='property'>{{prop}}</span><i class='spacer'>: </i><input class='value' @keyup='updateStyle(properties)' type="text" v-model='properties[prop]' /><i class='spacer'>;</i></li>
+                                        </li>
+                                    </ul>
+                                    <p class='closing-brace'>}</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--external scripts-->
+
+    <!--internal scripts-->
+    <script src="js/vue.min.js"></script>
+    <script  src="js/vue-resource.min.js"></script>
+    <script src="js/autosize-input.js"></script>
+    <script src="js/constructor.js"></script>
+</body>
+
+</html>

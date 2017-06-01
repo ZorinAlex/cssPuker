@@ -1,0 +1,34 @@
+[
+  {"name":"headers",
+    "templates": [
+      {
+        "name":"header1",
+        "html":"templates/headers/header1/header1.html",
+        "css":"templates/headers/header1/header1.css",
+        "js":"templates/headers/header1/header1.js"
+      },
+      {
+        "name":"header2",
+        "html":"templates/headers/header2/header2.html",
+        "css":"templates/headers/header2/header2.css",
+        "js":"templates/headers/header2/header2.js"
+      }
+    ]
+  },
+  {"name":"footers",
+    "templates": [
+      {
+        "name":"footer1",
+        "html":"templates/headers/footer1.html",
+        "css":"templates/headers/footer1.css",
+        "js":"templates/headers/footer1.js"
+      },
+      {
+        "name":"footer2",
+        "html":"templates/headers/footer2.html",
+        "css":"templates/headers/footer2.css",
+        "js":"templates/headers/footer2.js"
+      }
+    ]
+  }
+]
